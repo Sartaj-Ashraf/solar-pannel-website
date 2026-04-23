@@ -21,6 +21,8 @@ import userRouter from "./src/modules/auth/userRouter.js";
 import testimonialRouter from "./src/modules/testimonails/testimonialsRoutes.js";
 import contactQueriesRouter from "./src/modules/contackQuries/contactQueriesRouter.js"; 
 import galleryRouter from "./src/modules/gallery/galleryRouter.js";
+import categoryRouter from "./src/modules/category/categoryRoutes.js";
+import productRouter from "./src/modules/product/productRoutes.js";
 
 //public
 import path, { dirname } from "path";
@@ -86,6 +88,11 @@ app.use("/api/v1/testimonials", testimonialRouter);
 app.use("/api/v1/contact-queries", contactQueriesRouter);
 //gallery router
 app.use("/api/v1/gallery", galleryRouter);
+//category router
+app.use("/api/v1/category", categoryRouter);
+
+app.use("/api/v1/product", productRouter);
+
 
 
 

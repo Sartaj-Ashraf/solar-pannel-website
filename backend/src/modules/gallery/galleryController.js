@@ -3,7 +3,7 @@ import { uploadImagesToCloudinary, deleteImagesFromCloudinary } from "../../util
 import { badRequestErr, NotFoundErr } from "../../errors/customErors.js";
 import { galleryTypes } from "../../utils/constants.js";
 
-export const createGalleryImages = async (req, res) => {
+export const createGalleryImages = async (req, res) => { 
   try {
     const { type } = req.body;
     const files = req.files;
