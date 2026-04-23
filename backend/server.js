@@ -19,6 +19,8 @@ import cors from "cors";
 
 import userRouter from "./src/modules/auth/userRouter.js";
 import testimonialRouter from "./src/modules/testimonails/testimonialsRoutes.js";
+import contactQueriesRouter from "./src/modules/contackQuries/contactQueriesRouter.js"; 
+import galleryRouter from "./src/modules/gallery/galleryRouter.js";
 
 //public
 import path, { dirname } from "path";
@@ -80,6 +82,17 @@ app.options("*", cors());
 app.use("/api/v1/auth", userRouter);
 //testimonial router
 app.use("/api/v1/testimonials", testimonialRouter);
+//contact queries router
+app.use("/api/v1/contact-queries", contactQueriesRouter);
+//gallery router
+app.use("/api/v1/gallery", galleryRouter);
+
+
+
+
+
+
+
 
 //not found
 app.use("*", (req, res) => {
