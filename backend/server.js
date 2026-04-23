@@ -90,10 +90,6 @@ app.use("/api/v1/gallery", galleryRouter);
 
 
 
-
-
-
-
 //not found
 app.use("*", (req, res) => {
   res.status(404).json({

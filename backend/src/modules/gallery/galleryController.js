@@ -1,7 +1,7 @@
 import DevillazGallery from "./gallery.js";
 import { uploadImagesToCloudinary, deleteImagesFromCloudinary } from "../../utils/imageHandler.js";
 import { badRequestErr, NotFoundErr } from "../../errors/customErors.js";
-
+import { galleryTypes } from "../../utils/constants.js";
 
 export const createGalleryImages = async (req, res) => {
   try {
@@ -18,20 +18,8 @@ export const createGalleryImages = async (req, res) => {
     }
 
     // Validate type against enum values
-    const validTypes = [
-      "Room",
-      "Outdoors", 
-      "Facade",
-      "Washroom",
-      "Entrance",
-      "Reception",
-      "Common Area",
-      "Restaurant",
-      "Play Area"
-    ];
-
-    if (!validTypes.includes(type)) {
-      throw new badRequestErr(`Invalid type. Must be one of: ${validTypes.join(", ")}`);
+    if (!galleryTypes.includes(type)) {
+      throw new badRequestErr(`Invalid type. Must be one of: ${galleryTypes.join(", ")}`);
     }
 
     // Upload images to Cloudinary
@@ -143,20 +131,8 @@ export const getGalleryImagesByType = async (req, res) => {
   try {
     const { type } = req.params;
     // Validate type
-    const validTypes = [
-      "Room",
-      "Outdoors",
-      "Facade", 
-      "Washroom",
-      "Entrance",
-      "Reception",
-      "Common Area",
-      "Restaurant",
-      "Play Area"
-    ];
-
-    if (!validTypes.includes(type)) {
-      throw new badRequestErr(`Invalid type. Must be one of: ${validTypes.join(", ")}`);
+    if (!galleryTypes.includes(type)) {
+      throw new badRequestErr(`Invalid type. Must be one of: ${galleryTypes.join(", ")}`);
     }
 
     // Get images
